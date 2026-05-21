@@ -15,6 +15,8 @@ sidebar_position: 2
 - [x] Phase-by-phase specifications
 - [x] Root `Makefile` with placeholder targets
 - [x] `LICENSE` (MIT)
+- [x] Playwright E2E suite (desktop, tablet, mobile, reduced-motion)
+- [x] GitHub Actions CI for docs build + E2E
 
 ## Milestone 1 — Phase 1 complete (internal)
 

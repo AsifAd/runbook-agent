@@ -34,3 +34,8 @@ kubeconfig
 
 # Eval artifacts
 eval-results/
+
+# Playwright
+website/test-results/
+website/playwright-report/
+website/blob-report/

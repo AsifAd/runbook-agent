@@ -34,7 +34,7 @@ export default function Hero() {
   };
 
   return (
-    <header className={styles.hero}>
+    <header className={styles.hero} data-testid="hero">
       <div className={styles.glow} aria-hidden />
       <div className={styles.grid} aria-hidden />
 
@@ -52,7 +52,7 @@ export default function Hero() {
           </motion.p>
 
           <motion.div variants={item}>
-            <Heading as="h1" className={styles.title}>
+            <Heading as="h1" className={styles.title} data-testid="hero-title">
               {siteConfig.title}
             </Heading>
           </motion.div>

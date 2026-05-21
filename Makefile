@@ -21,6 +21,9 @@ docs:
 docs-build:
 	cd website && npm run build
 
+test-e2e:
+	cd website && npm run test:e2e
+
 cluster-up:
 	@echo "Phase 2 — not implemented yet. See docs/phases/phase-2-investigator"
 

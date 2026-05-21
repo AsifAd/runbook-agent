@@ -22,6 +22,25 @@ jobs:
       - run: npm run build
         working-directory: website
 
+  docs-e2e:
+    name: Playwright E2E (desktop + mobile + reduced-motion)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+      - run: npm ci
+        working-directory: website
+      - run: npx playwright install --with-deps chromium
+        working-directory: website
+      - run: npm run test:e2e
+        working-directory: website
+        env:
+          CI: true
+
   # Phase 1+ — uncomment when Python packages land
   # unit-tests:
   #   runs-on: ubuntu-latest

@@ -119,3 +119,5 @@ class InvestigationResult(BaseModel):
 1. `make demo-investigate` works for CrashLoop scenario
 2. Zero forbidden tool calls in eval suite
 3. OTel traces visible in Grafana or console exporter
+
+See [Phase Testing Gates](../evals/phase-testing-gates#phase-2--incident-investigator) for full test suite, stage checks, and rollback points.

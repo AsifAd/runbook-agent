@@ -28,6 +28,12 @@ npm run build
 npm run serve
 ```
 
+Run E2E tests (Playwright — desktop, mobile, reduced-motion, responsiveness):
+
+```bash
+npm run test:e2e
+```
+
 ## Agent packages (Phase 1+ — coming soon)
 
 Implementation begins in Phase 1. Planned setup:

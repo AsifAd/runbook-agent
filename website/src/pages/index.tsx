@@ -67,8 +67,8 @@ export default function Home(): ReactNode {
       description="Open-source agent for Kubernetes incident investigation and Ansible remediation with eval gates and policy guardrails.">
       <Hero />
 
-      <main className={styles.main}>
-        <AnimatedSection className={styles.flowSection}>
+      <main className={styles.main} data-testid="homepage-main">
+        <AnimatedSection className={styles.flowSection} data-testid="pipeline-section">
           <p className={styles.sectionLabel}>Pipeline</p>
           <Heading as="h2" className={styles.sectionTitle}>
             From alert to verified fix
@@ -93,7 +93,7 @@ export default function Home(): ReactNode {
             Documentation ships first. Code follows the spec — each phase has exit gates, eval
             criteria, and architecture diagrams before implementation begins.
           </p>
-          <div className={styles.grid}>
+          <div className={styles.grid} data-testid="phase-grid">
             {phases.map((p, i) => (
               <GlassCard key={p.title} {...p} index={i} />
             ))}

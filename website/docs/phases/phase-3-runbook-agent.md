@@ -128,3 +128,5 @@ flowchart TD
 ## Exit gate → Phase 4
 
 Phase 4 is optional. v1.0 is the primary deliverable. Only proceed to Phase 4 if v1.0 is live and featured on portfolio.
+
+See [Phase Testing Gates](../evals/phase-testing-gates#phase-3--runbook-agent-capstone) for full test suite, stage checks, and rollback points.

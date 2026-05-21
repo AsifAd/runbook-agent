@@ -134,3 +134,5 @@ Demonstrates GCP skills (Professional Cloud Architect cert) applied to AI worklo
 | Platform / developer experience | Option B |
 | Cloud / GCP platform engineer | Option C |
 | Job hunting in &lt; 2 months | **Skip Phase 4** — v1.0 is enough |
+
+See [Phase Testing Gates](../evals/phase-testing-gates#phase-4--agent-ops-platform) for full test suite, stage checks, and rollback points.

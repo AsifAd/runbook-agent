@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # Testing & Eval Strategy
 
+Every phase has defined **test suites**, **stage checkpoints**, and **rollback points**. See **[Phase Testing Gates](./phase-testing-gates)** for the full per-phase breakdown.
+
 ## Philosophy
 
 Runbook Agent treats the LLM as **untrusted code**. Every agent behavior is validated by **golden scenario tests** that fail CI — the same way you'd gate a production deploy.
@@ -11,10 +13,12 @@ Runbook Agent treats the LLM as **untrusted code**. Every agent behavior is vali
 ```mermaid
 flowchart LR
   PR[Pull request] --> UNIT[Unit tests]
+  PR --> E2E[Playwright E2E]
   PR --> GOLD[Golden evals]
   PR --> ADV[Adversarial evals]
   PR --> POL[Policy tests]
   UNIT --> GATE{All pass?}
+  E2E --> GATE
   GOLD --> GATE
   ADV --> GATE
   POL --> GATE

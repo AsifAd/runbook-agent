@@ -53,6 +53,7 @@ const sidebars: SidebarsConfig = {
       label: 'Quality & Security',
       items: [
         'evals/testing-strategy',
+        'evals/phase-testing-gates',
         'security/policy-guardrails',
       ],
     },

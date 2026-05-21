@@ -110,3 +110,5 @@ Phase 2 starts only when:
 1. `make eval-classifier` passes locally
 2. CI green on `main`
 3. Runbook catalog schema is stable (no breaking changes expected)
+
+See [Phase Testing Gates](../evals/phase-testing-gates#phase-1--alert-classifier) for full test suite, stage checks, and rollback points.

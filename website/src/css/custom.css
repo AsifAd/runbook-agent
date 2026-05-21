@@ -163,6 +163,8 @@ body {
   font-size: 1.05rem;
   line-height: 1.75;
   letter-spacing: 0.01em;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 .theme-doc-markdown h1 {
@@ -186,8 +188,10 @@ body {
 }
 
 .theme-doc-markdown table {
-  display: table;
+  display: block;
   width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
   border-collapse: separate;
   border-spacing: 0;
   border: 1px solid var(--ra-rule);
@@ -237,6 +241,8 @@ body {
   padding: 1.5rem;
   margin: 1.5rem 0;
   box-shadow: var(--ra-glass-shadow);
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 /* Pagination */
@@ -310,7 +316,19 @@ body {
   }
 }
 
-/* Reduced motion */
+.theme-doc-markdown pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+@media (max-width: 996px) {
+  .main-wrapper,
+  .docMainContainer,
+  .container {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
