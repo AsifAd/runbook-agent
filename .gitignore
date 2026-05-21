@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node
+node_modules/
+website/build/
+website/.docusaurus/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+
+# Secrets
+.env.local
+*.pem
+
+# kind / kube
+kubeconfig
+*.log
+
+# Eval artifacts
+eval-results/

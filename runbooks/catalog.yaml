@@ -1,0 +1,68 @@
+# Runbook catalog — approved remediations only.
+# Phase 1 defines IDs; Phase 3 wires Ansible playbooks.
+
+runbooks:
+  - id: RB-001
+    name: Rollback bad container image
+    incident_types:
+      - CrashLoopBackOff
+      - ImagePullBackOff
+    playbook: runbooks/playbooks/rollback-image.yml
+    risk_level: medium
+    allowed_envs:
+      - sandbox
+    requires_approval: true
+    allowed_tools:
+      - ansible-playbook
+    forbidden_actions:
+      - delete namespace
+
+  - id: RB-002
+    name: Rollback bad ConfigMap
+    incident_types:
+      - ConfigError
+      - HTTP502
+    playbook: runbooks/playbooks/rollback-configmap.yml
+    risk_level: medium
+    allowed_envs:
+      - sandbox
+    requires_approval: true
+    allowed_tools:
+      - ansible-playbook
+
+  - id: RB-003
+    name: Fix OOM — increase memory limit
+    incident_types:
+      - OOMKilled
+      - CrashLoopBackOff
+    playbook: runbooks/playbooks/fix-oom.yml
+    risk_level: medium
+    allowed_envs:
+      - sandbox
+    requires_approval: true
+    allowed_tools:
+      - ansible-playbook
+
+  - id: RB-004
+    name: Fix image pull secret
+    incident_types:
+      - ImagePullBackOff
+    playbook: runbooks/playbooks/fix-imagepull.yml
+    risk_level: low
+    allowed_envs:
+      - sandbox
+    requires_approval: false
+    allowed_tools:
+      - ansible-playbook
+
+  - id: RB-005
+    name: Scale replicas for latency
+    incident_types:
+      - HighLatency
+    playbook: runbooks/playbooks/scale-up.yml
+    risk_level: low
+    allowed_envs:
+      - sandbox
+    requires_approval: false
+    allowed_tools:
+      - ansible-playbook

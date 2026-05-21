@@ -1,0 +1,57 @@
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+[data-theme='light'] .heroBanner {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f8fafc 100%);
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.phaseCard .card {
+  height: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.phaseCard .card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.phaseCard h3 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  white-space: nowrap;
+}
+
+.stack {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.stackLine {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
