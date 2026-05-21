@@ -71,21 +71,25 @@ Mock webhooks mirror real PagerDuty / New Relic shapes:
 
 ## Agent output schema (structured)
 
+Example for **S-002 OOMKilled** (`scenarios/oom-inventory-api.json`):
+
 ```json
 {
-  "incident_id": "inc-001",
-  "incident_type": "CrashLoopBackOff",
-  "root_cause": "Container OOMKilled — memory limit 128Mi too low",
+  "incident_id": "inc-002",
+  "incident_type": "OOMKilled",
+  "root_cause": "Container OOMKilled — memory limit 128Mi too low for JVM heap",
   "confidence": 0.92,
   "recommended_runbook_id": "RB-003",
   "evidence": [
     "kubectl describe: Last State OOMKilled",
-    "kubectl logs: java.lang.OutOfMemoryError"
+    "kubectl logs: java.lang.OutOfMemoryError: Java heap space"
   ],
   "proposed_action": "Increase memory limit and restart deployment",
   "risk_level": "medium"
 }
 ```
+
+See the [scenario matrix](../plan/scenario-matrix) for all alert → runbook mappings.
 
 ## Runbook catalog entry (YAML)
 

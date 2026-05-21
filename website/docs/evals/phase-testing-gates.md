@@ -51,7 +51,7 @@ flowchart LR
 | S0.1 Repo created | `gh repo view AsifAd/runbook-agent` | Repo public, MIT license |
 | S0.2 Docs content | All phase specs present | 18 doc pages build |
 | S0.3 GitHub Pages | Deploy workflow green | Site live at `/runbook-agent/` |
-| S0.4 E2E suite | Playwright all projects | 0 failures (desktop, tablet, mobile) |
+| S0.4 E2E suite | Playwright all projects | 0 failures (desktop, mobile, reduced-motion) |
 | S0.5 Monorepo layout | Directories exist | `packages/`, `runbooks/`, `scenarios/`, `infra/` |
 
 ### Rollback points
@@ -240,7 +240,7 @@ flowchart TB
 
 | Trigger | Jobs |
 |---------|------|
-| Every PR | docs build, Playwright (desktop + mobile + tablet), Python unit/policy |
+| Every PR | docs build, Playwright (desktop + mobile + reduced-motion), Python unit/policy |
 | Push to `main` | above + golden evals (when Phase 1+ live) + Pages deploy |
 | Git tag | full demo smoke + eval report published to docs |
 

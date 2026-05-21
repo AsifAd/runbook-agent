@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://asifad.github.io/runbook-agent/schemas/catalog.json",
+  "title": "Runbook Catalog",
+  "description": "Approved remediations only. Validated in CI from Phase 1.",
+  "type": "object",
+  "required": ["runbooks"],
+  "properties": {
+    "runbooks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "incident_types",
+          "playbook",
+          "risk_level",
+          "allowed_envs",
+          "requires_approval",
+          "allowed_tools"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^RB-[0-9]{3}$"
+          },
+          "name": { "type": "string", "minLength": 1 },
+          "incident_types": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1
+          },
+          "playbook": {
+            "type": "string",
+            "pattern": "^runbooks/playbooks/.+\\.yml$"
+          },
+          "risk_level": {
+            "type": "string",
+            "enum": ["low", "medium", "high"]
+          },
+          "allowed_envs": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1
+          },
+          "requires_approval": { "type": "boolean" },
+          "allowed_tools": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1
+          },
+          "forbidden_actions": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "max_blast_radius": {
+            "type": "string",
+            "enum": ["single_pod", "single_deployment", "namespace"]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,23 @@
+{
+  "name": "oom-inventory-api",
+  "scenario_id": "S-002",
+  "phase": 1,
+  "input": {
+    "id": "inc-002",
+    "source": "pagerduty",
+    "severity": "critical",
+    "summary": "inventory-api OOMKilled — memory limit exceeded",
+    "labels": {
+      "cluster": "demo",
+      "namespace": "shop",
+      "pod": "inventory-api-5f9c-xk9lm",
+      "alertname": "KubePodOOMKilled"
+    },
+    "timestamp": "2026-05-21T15:00:00Z"
+  },
+  "expected": {
+    "incident_type": "OOMKilled",
+    "recommended_runbook_id": "RB-003",
+    "min_confidence": 0.7
+  }
+}

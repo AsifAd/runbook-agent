@@ -73,8 +73,7 @@ make test           # Unit + policy tests (no LLM API)
 
 :::info Current status
 
-**Phase 0 complete** — repo scaffold, documentation, GitHub Pages.  
-**Phase 1 starting next** — classifier package and eval fixtures.
+**Phase 0 complete** · **Phase 1 in progress** — see [Current Status](../plan/current-status) for this week's tasks.
 
 :::
 
@@ -110,6 +109,6 @@ make eval
 
 ## Next steps
 
-1. Read [Phase 1 — Classifier](../phases/phase-1-classifier) spec
-2. Check [Milestones](../roadmap/milestones) for current checklist
-3. Watch repo for `phase-1/classifier` branch
+1. Read [Current Status](https://asifad.github.io/runbook-agent/docs/plan/current-status) for this week's tasks
+2. Read [Phase 1 — Classifier](https://asifad.github.io/runbook-agent/docs/phases/phase-1-classifier) spec
+3. Configure `ANTHROPIC_API_KEY` — see [CI & secrets](https://asifad.github.io/runbook-agent/docs/evals/ci-and-secrets)

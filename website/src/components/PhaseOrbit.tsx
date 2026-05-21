@@ -5,7 +5,7 @@ import {motion, useReducedMotion} from 'framer-motion';
 import styles from './PhaseOrbit.module.css';
 
 const phases = [
-  {n: 0, title: 'Scaffold', status: 'Complete', link: '/docs/roadmap/milestones', active: false, done: true},
+  {n: 0, title: 'Scaffold', status: 'Complete', link: '/docs/phases/phase-0-scaffold', active: false, done: true},
   {n: 1, title: 'Classifier', status: 'Next', link: '/docs/phases/phase-1-classifier', active: true, done: false},
   {n: 2, title: 'Investigator', status: 'Planned', link: '/docs/phases/phase-2-investigator', active: false, done: false},
   {n: 3, title: 'Runbook Agent', status: 'Capstone', link: '/docs/phases/phase-3-runbook-agent', active: false, done: false},

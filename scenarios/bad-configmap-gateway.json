@@ -1,0 +1,23 @@
+{
+  "name": "bad-configmap-gateway",
+  "scenario_id": "S-003",
+  "phase": 1,
+  "input": {
+    "id": "inc-003",
+    "source": "newrelic",
+    "severity": "critical",
+    "summary": "gateway returning HTTP 502 — upstream connection refused",
+    "labels": {
+      "cluster": "demo",
+      "namespace": "shop",
+      "pod": "gateway-6a2b-cc9lm",
+      "alertname": "HTTP502"
+    },
+    "timestamp": "2026-05-21T15:30:00Z"
+  },
+  "expected": {
+    "incident_type": "HTTP502",
+    "recommended_runbook_id": "RB-002",
+    "min_confidence": 0.7
+  }
+}

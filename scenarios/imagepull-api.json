@@ -1,0 +1,23 @@
+{
+  "name": "imagepull-api",
+  "scenario_id": "S-004",
+  "phase": 1,
+  "input": {
+    "id": "inc-004",
+    "source": "pagerduty",
+    "severity": "warning",
+    "summary": "payments-api ImagePullBackOff — image not found",
+    "labels": {
+      "cluster": "demo",
+      "namespace": "shop",
+      "pod": "payments-api-8c1d-xx2lm",
+      "alertname": "KubePodImagePullBackOff"
+    },
+    "timestamp": "2026-05-21T16:00:00Z"
+  },
+  "expected": {
+    "incident_type": "ImagePullBackOff",
+    "recommended_runbook_id": "RB-004",
+    "min_confidence": 0.7
+  }
+}

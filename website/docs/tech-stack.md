@@ -14,7 +14,7 @@ sidebar_position: 1
 | **Pydantic AI** | latest | Agent loop + structured outputs | Cleaner than raw API calls; less magic than LangGraph |
 | **FastAPI** | latest | Webhook + approval API | Lightweight, async, OpenAPI docs built-in |
 | **Pydantic** | v2 | Schema validation | Structured agent outputs — non-negotiable for evals |
-| **Anthropic / OpenAI API** | — | LLM provider | Tool use + structured outputs; pick one for v1 |
+| **Anthropic Claude** | latest Sonnet | LLM provider (v1) | Tool use + structured output — see [ADR-001](./decisions/llm-provider) |
 
 ### Infrastructure & demo
 

@@ -1,0 +1,23 @@
+{
+  "name": "high-latency-api",
+  "scenario_id": "S-005",
+  "phase": 1,
+  "input": {
+    "id": "inc-005",
+    "source": "newrelic",
+    "severity": "warning",
+    "summary": "checkout-api p95 latency above 2s — pods healthy",
+    "labels": {
+      "cluster": "demo",
+      "namespace": "shop",
+      "service": "checkout-api",
+      "alertname": "HighLatency"
+    },
+    "timestamp": "2026-05-21T16:30:00Z"
+  },
+  "expected": {
+    "incident_type": "HighLatency",
+    "recommended_runbook_id": "RB-005",
+    "min_confidence": 0.6
+  }
+}

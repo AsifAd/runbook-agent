@@ -21,7 +21,7 @@ sidebar_position: 1
 
 | Key | Required when | Get it |
 |-----|---------------|--------|
-| `ANTHROPIC_API_KEY` or `OPENAI_API_KEY` | Phase 1+ | Provider dashboard |
+| `ANTHROPIC_API_KEY` | Phase 1+ | [Anthropic Console](https://console.anthropic.com/) — see [ADR-001](../decisions/llm-provider) |
 | `GITHUB_TOKEN` | CI evals (optional) | GitHub Settings → Secrets |
 
 :::tip Cost control

@@ -4,6 +4,10 @@ sidebar_position: 2
 
 # Milestones & Checklists
 
+:::info Live progress
+See **[Current Status](../plan/current-status)** for this week's tasks and what's blocking the next phase.
+:::
+
 ## Milestone 0 — Project scaffold ✅
 
 **Target:** Week 0 (May 2026)
@@ -15,7 +19,7 @@ sidebar_position: 2
 - [x] Phase-by-phase specifications
 - [x] Root `Makefile` with placeholder targets
 - [x] `LICENSE` (MIT)
-- [x] Playwright E2E suite (desktop, tablet, mobile, reduced-motion)
+- [x] Playwright E2E suite (desktop, mobile, reduced-motion)
 - [x] GitHub Actions CI for docs build + E2E
 
 ## Milestone 1 — Phase 1 complete (internal)
@@ -23,7 +27,7 @@ sidebar_position: 2
 **Target:** Week 2
 
 - [ ] `packages/classifier/` with Pydantic models
-- [ ] 5+ alert fixtures in `scenarios/`
+- [ ] 5+ alert fixtures in `scenarios/` (stubs committed — wire in classifier)
 - [x] `runbooks/catalog.yaml` with runbook IDs (5 runbooks)
 - [ ] Classifier prompt versioned in git
 - [ ] pytest golden tests: ≥90% accuracy
@@ -53,7 +57,7 @@ sidebar_position: 2
 - [ ] 3 Ansible playbooks wired to catalog
 - [ ] Policy engine blocks forbidden tools/actions
 - [ ] Ansible `--check` as default execution mode
-- [ ] Human approval for `risk_level: high`
+- [ ] Human approval for medium/high risk runbooks
 - [ ] 15–20 golden eval scenarios
 - [ ] Adversarial test cases (misleading logs)
 - [ ] `make demo` — full alert → fix in under 5 minutes

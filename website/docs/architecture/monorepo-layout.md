@@ -34,11 +34,12 @@ runbook-agent/
 │       └── tests/
 ├── runbooks/
 │   ├── catalog.yaml            # Approved runbook definitions
-│   └── playbooks/              # Ansible playbooks
-├── scenarios/                  # Golden incident fixtures
-│   ├── crashloop.json
-│   ├── oomkill.json
-│   └── bad-configmap.json
+│   ├── catalog.schema.json     # JSON Schema for catalog validation
+│   └── playbooks/              # Ansible playbooks (Phase 3)
+├── scenarios/                  # Golden incident fixtures (see plan/scenario-matrix)
+│   ├── crashloop-checkout-api.json
+│   ├── oom-inventory-api.json
+│   └── ...
 ├── infra/
 │   ├── kind/
 │   │   └── kind-config.yaml

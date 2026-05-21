@@ -83,13 +83,16 @@ class ClassificationResult(BaseModel):
 
 ## Sample fixture
 
+See `scenarios/crashloop-checkout-api.json` (scenario **S-001**) and the full [scenario matrix](../plan/scenario-matrix):
+
 ```json
 {
   "name": "crashloop-checkout-api",
+  "scenario_id": "S-001",
   "input": {
     "id": "inc-001",
     "severity": "critical",
-    "summary": "checkout-api CrashLoopBackOff",
+    "summary": "checkout-api CrashLoopBackOff — container exits with code 1",
     "labels": {
       "namespace": "shop",
       "pod": "checkout-api-7d4f8b9c-xk2lm",

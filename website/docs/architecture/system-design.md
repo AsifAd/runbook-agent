@@ -126,3 +126,57 @@ stateDiagram-v2
 | **GCP Cloud Run** | Optional cloud demo | Phase 4 |
 
 Local-first keeps cost at ~$5–20/month (LLM API only during development).
+
+## Runtime orchestration (by phase)
+
+Each phase adds an entrypoint. Packages chain via Python imports — no shared orchestrator until Phase 3.
+
+```mermaid
+flowchart TB
+  subgraph p1 [Phase 1]
+    CLI1[python -m classifier] --> CL[classify alert]
+  end
+  subgraph p2 [Phase 2]
+    CLI2[make demo-investigate] --> INV[investigate alert]
+    INV --> CL2[classifier]
+    INV --> KUB[kubectl tools]
+  end
+  subgraph p3 [Phase 3]
+    API[FastAPI POST /webhooks/alert] --> PIPE[remediate pipeline]
+    PIPE --> INV2[investigator]
+    PIPE --> POL[policy engine]
+    PIPE --> ANS[Ansible executor]
+    APPROVE[POST /incidents/id/approve] --> PIPE
+  end
+```
+
+| Phase | Entrypoint | Orchestrator | State storage |
+|-------|------------|--------------|---------------|
+| **1** | `make eval-classifier` | pytest | Stateless (fixture in → result out) |
+| **2** | `make demo-investigate` | CLI in `packages/investigator` | In-memory per run |
+| **3** | `make demo` / FastAPI | `packages/executor` | In-memory dict + JSON audit log to stdout |
+| **4** | Same as Phase 3 | + platform module | SQLite optional (v2) |
+
+### Shared modules
+
+| Module | Location | Used by |
+|--------|----------|---------|
+| Pydantic models | Each package exports its own | Downstream imports |
+| Policy (read-only) | `packages/investigator/src/policy.py` | Investigator |
+| Policy (execution) | `packages/executor/src/policy.py` | Executor — extends read-only rules |
+| Runbook catalog | `runbooks/catalog.yaml` | Classifier, investigator, executor |
+| Scenarios | `scenarios/*.json` | All eval suites |
+
+No `packages/common` in v1 — extract only if duplication becomes painful in Phase 3.
+
+### Human approval (v1)
+
+Phase 3 uses **API-only approval** — no web UI until v2:
+
+```bash
+curl -X POST http://localhost:8000/incidents/inc-001/approve \
+  -H "Content-Type: application/json" \
+  -d '{"approved_by": "oncall-engineer"}'
+```
+
+High and medium risk runbooks in sandbox require approval per [policy guardrails](../security/policy-guardrails#risk-matrix).

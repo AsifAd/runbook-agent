@@ -33,24 +33,24 @@ flowchart LR
 
 ## Build approach
 
-This project ships in **four internal phases**, published as **one monorepo** and **one portfolio story**:
+This project ships in **five phases (0–4)**, published as **one monorepo** and **one portfolio story**:
 
 | Phase | Name | Public? | Status |
 |-------|------|---------|--------|
 | 0 | Docs & scaffold | GitHub Pages live | **Complete** |
-| 1 | Alert Classifier | Internal scaffold | Next |
+| 1 | Alert Classifier | Internal scaffold | **In progress** |
 | 2 | Incident Investigator | v0.1 publish | Planned |
 | 3 | Runbook Agent (capstone) | v1.0 featured | Planned |
 | 4 | Agent Ops Platform | v2 optional | Planned |
 
-:::info Live docs
-
-This site is hosted on GitHub Pages at **[asifad.github.io/runbook-agent](https://asifad.github.io/runbook-agent/)**.
-
+:::tip Where are we now?
+See **[Current Status](./plan/current-status)** for this week's tasks and exit gates.
 :::
 
 ## Quick links
 
+- [Current status](./plan/current-status) — this week, exit gates, decisions
+- [Scenario matrix](./plan/scenario-matrix) — canonical alert → runbook mapping
 - [Project vision](./overview/project-vision) — goals and non-goals
 - [System design](./architecture/system-design) — architecture diagrams
 - [Tech stack](./tech-stack) — technologies and rationale

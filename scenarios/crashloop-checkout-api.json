@@ -1,0 +1,23 @@
+{
+  "name": "crashloop-checkout-api",
+  "scenario_id": "S-001",
+  "phase": 1,
+  "input": {
+    "id": "inc-001",
+    "source": "pagerduty",
+    "severity": "critical",
+    "summary": "checkout-api CrashLoopBackOff — container exits with code 1",
+    "labels": {
+      "cluster": "demo",
+      "namespace": "shop",
+      "pod": "checkout-api-7d4f8b9c-xk2lm",
+      "alertname": "KubePodCrashLooping"
+    },
+    "timestamp": "2026-05-21T14:30:00Z"
+  },
+  "expected": {
+    "incident_type": "CrashLoopBackOff",
+    "recommended_runbook_id": "RB-001",
+    "min_confidence": 0.7
+  }
+}

@@ -15,7 +15,7 @@ Alert → Investigate (read-only kubectl) → Select runbook → Policy check �
 | Capability | Status |
 |------------|--------|
 | Phase 0 — Docs & scaffold | ✅ Live |
-| Phase 1 — Alert classifier + evals | 🔜 Planned |
+| Phase 1 — Alert classifier + evals | 🔵 In progress |
 | Phase 2 — Incident investigator (kind) | 🔜 Planned |
 | Phase 3 — Runbook Agent capstone | 🔜 Planned |
 | Phase 4 — Agent ops platform | 🔜 Optional |
@@ -45,9 +45,10 @@ runbook-agent/
 
 ## Build phases
 
-See full specs in the [documentation](https://asifad.github.io/runbook-agent/docs/phases/phase-1-classifier):
+See full specs in the [documentation](https://asifad.github.io/runbook-agent/docs/plan/current-status):
 
-1. **Classifier** — structured alert → runbook ID mapping (internal)
+0. **Scaffold** — docs, CI, scenario stubs (complete)
+1. **Classifier** — structured alert → runbook ID mapping (in progress)
 2. **Investigator** — read-only tool loop on kind (v0.1)
 3. **Runbook Agent** — policy + Ansible execution (v1.0 capstone)
 4. **Platform** — eval SLOs, MCP, or cloud deploy (v2.0 optional)
