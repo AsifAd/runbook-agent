@@ -22,24 +22,24 @@ test.describe('responsive layout', () => {
     }
   }
 
-  test('mobile stacks phase cards in single column', async ({page}) => {
+  test('mobile stacks phase nodes in single column', async ({page}) => {
     await page.setViewportSize({width: 390, height: 844});
     await page.goto('./');
     const grid = page.getByTestId('phase-grid');
-    const firstCard = grid.locator('article').first();
-    const secondCard = grid.locator('article').nth(1);
-    const firstBox = await firstCard.boundingBox();
-    const secondBox = await secondCard.boundingBox();
+    const first = grid.locator('a').first();
+    const second = grid.locator('a').nth(1);
+    const firstBox = await first.boundingBox();
+    const secondBox = await second.boundingBox();
     expect(firstBox).not.toBeNull();
     expect(secondBox).not.toBeNull();
     expect(secondBox!.y).toBeGreaterThan(firstBox!.y + firstBox!.height - 20);
   });
 
-  test('desktop shows phase grid in two columns', async ({page}) => {
+  test('desktop shows phase orbit in multi-column layout', async ({page}) => {
     await page.setViewportSize({width: 1280, height: 800});
     await page.goto('./');
-    const first = page.getByTestId('phase-grid').locator('article').nth(0);
-    const second = page.getByTestId('phase-grid').locator('article').nth(1);
+    const first = page.getByTestId('phase-grid').locator('a').nth(0);
+    const second = page.getByTestId('phase-grid').locator('a').nth(1);
     const firstBox = await first.boundingBox();
     const secondBox = await second.boundingBox();
     expect(firstBox).not.toBeNull();
@@ -51,8 +51,8 @@ test.describe('responsive layout', () => {
   test('hero CTAs wrap on mobile without overflow', async ({page}) => {
     await page.setViewportSize({width: 390, height: 844});
     await page.goto('./');
-    await expect(page.getByRole('link', {name: /Read the documentation/i}).first()).toBeVisible();
-    await expect(page.getByRole('link', {name: /View on GitHub/i}).first()).toBeVisible();
+    await expect(page.getByRole('link', {name: /Read the docs/i}).first()).toBeVisible();
+    await expect(page.getByRole('link', {name: /^GitHub$/i}).first()).toBeVisible();
     await expectNoHorizontalScroll(page);
   });
 

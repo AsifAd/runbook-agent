@@ -1,5 +1,5 @@
 .main {
-  max-width: 1100px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 0 1.25rem 5rem;
 }
@@ -26,90 +26,87 @@
 .sectionDesc {
   text-align: center;
   max-width: 620px;
-  margin: 0 auto 2.25rem;
+  margin: 0 auto 1.5rem;
   color: var(--ra-ink-muted);
   line-height: 1.65;
   font-size: 1.05rem;
 }
 
-.flowSection {
-  margin-bottom: 4.5rem;
-}
-
-.flow {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 0.35rem 0.15rem;
-  padding: 1.35rem 1rem;
-  border-radius: 16px;
-  margin-top: 1.5rem;
-}
-
-.flowStep {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-.flowDot {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.35rem;
-  height: 1.35rem;
-  border-radius: 50%;
-  font-size: 0.65rem;
-  font-weight: 700;
-  background: var(--ra-accent-soft);
-  color: var(--ifm-color-primary);
-  border: 1px solid var(--ra-rule);
-}
-
-.flowLabel {
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-}
-
-.flowArrow {
-  margin: 0 0.15rem;
-  opacity: 0.45;
-  font-size: 0.85rem;
-}
-
-.grid {
+.diffGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
+  margin-bottom: 4rem;
 }
 
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
+.diffCard {
+  padding: 1.75rem 1.5rem;
+  border-radius: 18px;
+  transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-  .flowLabel {
-    font-size: 0.75rem;
-  }
+.diffCard:hover {
+  transform: translateY(-4px);
+}
+
+.diffIcon {
+  font-size: 1.5rem;
+  color: var(--ifm-color-primary);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.diffTitle {
+  font-family: var(--ifm-heading-font-family);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.diffDesc {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ra-ink-muted);
 }
 
 .ctaPanel {
-  padding: 2.75rem 2rem;
-  border-radius: 20px;
+  padding: 3rem 2rem;
+  border-radius: 24px;
   text-align: center;
   margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaPanel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 100%, var(--ra-accent-soft), transparent 70%);
+  pointer-events: none;
+}
+
+.ctaKicker {
+  position: relative;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ra-gold);
+  margin-bottom: 0.5rem;
 }
 
 .ctaTitle {
+  position: relative;
   font-family: var(--ifm-heading-font-family);
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
   margin-bottom: 0.75rem;
 }
 
 .ctaDesc {
+  position: relative;
   max-width: 540px;
   margin: 0 auto 1.75rem;
   color: var(--ra-ink-muted);
@@ -117,8 +114,15 @@
 }
 
 .ctaActions {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .diffGrid {
+    grid-template-columns: 1fr;
+  }
 }

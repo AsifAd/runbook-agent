@@ -1,63 +1,33 @@
-import type {ReactNode} from 'react';
+import {type ReactNode} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
 import AnimatedSection from '@site/src/components/AnimatedSection';
-import GlassCard from '@site/src/components/GlassCard';
 import Hero from '@site/src/components/Hero';
+import IncidentCommandTheater from '@site/src/components/IncidentCommandTheater';
+import PhaseOrbit from '@site/src/components/PhaseOrbit';
 import TechStack from '@site/src/components/TechStack';
 
 import styles from './index.module.css';
 
-const phases = [
+const differentiators = [
   {
-    title: 'Phase 0 — Scaffold',
-    desc: 'GitHub repo, Docusaurus docs, GitHub Pages, monorepo layout, and phase specifications.',
-    link: '/docs/roadmap/milestones',
-    status: 'Complete',
-    icon: '✓',
+    icon: '⬡',
+    title: 'Eval-gated, not vibe-coded',
+    desc: 'Golden scenarios fail CI before a bad runbook ships. Honest accuracy scores in the README.',
   },
   {
-    title: 'Phase 1 — Classifier',
-    desc: 'Structured alert classification and golden eval fixtures. Internal scaffold before tool use.',
-    link: '/docs/phases/phase-1-classifier',
-    status: 'Next',
-    icon: '01',
+    icon: '◈',
+    title: 'Policy before prompt',
+    desc: 'Six deterministic layers gate every action. The LLM recommends — policy decides.',
   },
   {
-    title: 'Phase 2 — Investigator',
-    desc: 'Read-only kubectl tools on kind. Root cause with evidence. Target: v0.1 public publish.',
-    link: '/docs/phases/phase-2-investigator',
-    status: 'Planned',
-    icon: '02',
+    icon: '◎',
+    title: 'Human-in-the-loop default',
+    desc: 'High-risk remediations pause for approval. No "AI with root" theater.',
   },
-  {
-    title: 'Phase 3 — Runbook Agent',
-    desc: 'Policy-gated Ansible remediation with human approval. Portfolio capstone — v1.0 featured.',
-    link: '/docs/phases/phase-3-runbook-agent',
-    status: 'Planned',
-    icon: '03',
-  },
-  {
-    title: 'Phase 4 — Platform',
-    desc: 'Agent SLOs, MCP server, or cloud deploy. Optional v2 depth after capstone ships.',
-    link: '/docs/phases/phase-4-platform',
-    status: 'Future',
-    icon: '04',
-  },
-];
-
-const flow = [
-  'Alert',
-  'Investigate',
-  'Select runbook',
-  'Policy check',
-  'Dry-run',
-  'Approve',
-  'Execute',
-  'Verify',
 ];
 
 export default function Home(): ReactNode {
@@ -68,17 +38,19 @@ export default function Home(): ReactNode {
       <Hero />
 
       <main className={styles.main} data-testid="homepage-main">
-        <AnimatedSection className={styles.flowSection} data-testid="pipeline-section">
-          <p className={styles.sectionLabel}>Pipeline</p>
+        <IncidentCommandTheater />
+
+        <AnimatedSection>
+          <p className={styles.sectionLabel}>Philosophy</p>
           <Heading as="h2" className={styles.sectionTitle}>
-            From alert to verified fix
+            Built different on purpose
           </Heading>
-          <div className={clsx(styles.flow, 'ra-glass')}>
-            {flow.map((step, i) => (
-              <div key={step} className={styles.flowStep}>
-                <span className={styles.flowDot}>{i + 1}</span>
-                <span className={styles.flowLabel}>{step}</span>
-                {i < flow.length - 1 && <span className={styles.flowArrow} aria-hidden>→</span>}
+          <div className={styles.diffGrid}>
+            {differentiators.map((d, i) => (
+              <div key={d.title} className={clsx(styles.diffCard, 'ra-glass')}>
+                <span className={styles.diffIcon}>{d.icon}</span>
+                <h3 className={styles.diffTitle}>{d.title}</h3>
+                <p className={styles.diffDesc}>{d.desc}</p>
               </div>
             ))}
           </div>
@@ -87,29 +59,26 @@ export default function Home(): ReactNode {
         <AnimatedSection delay={0.05}>
           <p className={styles.sectionLabel}>Roadmap</p>
           <Heading as="h2" className={styles.sectionTitle}>
-            Four phases, one portfolio story
+            Phase orbit — one story, five gates
           </Heading>
           <p className={styles.sectionDesc}>
-            Documentation ships first. Code follows the spec — each phase has exit gates, eval
-            criteria, and architecture diagrams before implementation begins.
+            Each phase has tests, stage checks, and rollback points before the next begins.{' '}
+            <Link to="/docs/evals/phase-testing-gates">See testing gates →</Link>
           </p>
-          <div className={styles.grid} data-testid="phase-grid">
-            {phases.map((p, i) => (
-              <GlassCard key={p.title} {...p} index={i} />
-            ))}
-          </div>
+          <PhaseOrbit />
         </AnimatedSection>
 
         <TechStack />
 
         <AnimatedSection delay={0.1}>
           <div className={clsx(styles.ctaPanel, 'ra-glass')}>
+            <p className={styles.ctaKicker}>Ready to dive in?</p>
             <Heading as="h2" className={styles.ctaTitle}>
-              Start with the documentation
+              Specs first. Code follows.
             </Heading>
             <p className={styles.ctaDesc}>
               Architecture, security model, eval strategy, and week-by-week build plan — everything
-              needed before writing agent code.
+              documented before a single agent line ships.
             </p>
             <div className={styles.ctaActions}>
               <Link className="button button--primary button--lg" to="/docs/intro">
