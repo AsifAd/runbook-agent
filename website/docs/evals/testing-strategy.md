@@ -109,7 +109,9 @@ jobs:
 ```
 
 :::caution API costs
+
 Golden evals call the LLM API. Run evals on every `main` push, not every PR, to control costs (~$0.50–2.00 per full eval run).
+
 :::
 
 ## Eval report (published)

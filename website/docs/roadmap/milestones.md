@@ -13,8 +13,8 @@ sidebar_position: 2
 - [x] GitHub Pages deployment workflow
 - [x] Monorepo directory layout
 - [x] Phase-by-phase specifications
-- [ ] Root `Makefile` with placeholder targets
-- [ ] `LICENSE` (MIT)
+- [x] Root `Makefile` with placeholder targets
+- [x] `LICENSE` (MIT)
 
 ## Milestone 1 — Phase 1 complete (internal)
 
@@ -22,7 +22,7 @@ sidebar_position: 2
 
 - [ ] `packages/classifier/` with Pydantic models
 - [ ] 5+ alert fixtures in `scenarios/`
-- [ ] `runbooks/catalog.yaml` with runbook IDs
+- [x] `runbooks/catalog.yaml` with runbook IDs (5 runbooks)
 - [ ] Classifier prompt versioned in git
 - [ ] pytest golden tests: ≥90% accuracy
 - [ ] GitHub Actions CI for classifier tests

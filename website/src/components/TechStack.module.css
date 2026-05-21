@@ -1,0 +1,62 @@
+.section {
+  margin-bottom: 4rem;
+}
+
+.panel {
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ra-ink-muted);
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-family: var(--ifm-heading-font-family);
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.75rem;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+  margin-bottom: 1.75rem;
+}
+
+.pill {
+  display: inline-block;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ra-ink);
+  background: var(--ra-accent-soft);
+  border: 1px solid var(--ra-rule);
+  cursor: default;
+  transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pill:hover {
+  box-shadow: 0 6px 16px rgba(50, 104, 145, 0.2);
+}
+
+.cta {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ifm-color-primary);
+}
+
+.cta:hover {
+  text-decoration: none;
+}

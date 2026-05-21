@@ -1,57 +1,124 @@
-.heroBanner {
-  padding: 4rem 0;
+.main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem 5rem;
+}
+
+.sectionLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ra-ink-muted);
+  margin-bottom: 0.4rem;
   text-align: center;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
 }
 
-[data-theme='light'] .heroBanner {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f8fafc 100%);
+.sectionTitle {
+  font-family: var(--ifm-heading-font-family);
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  text-align: center;
+  margin-bottom: 0.75rem;
 }
 
-.buttons {
+.sectionDesc {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 2.25rem;
+  color: var(--ra-ink-muted);
+  line-height: 1.65;
+  font-size: 1.05rem;
+}
+
+.flowSection {
+  margin-bottom: 4.5rem;
+}
+
+.flow {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem 0.15rem;
+  padding: 1.35rem 1rem;
+  border-radius: 16px;
+  margin-top: 1.5rem;
+}
+
+.flowStep {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.flowDot {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 50%;
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: var(--ra-accent-soft);
+  color: var(--ifm-color-primary);
+  border: 1px solid var(--ra-rule);
 }
 
-.phaseCard .card {
-  height: 100%;
-  border: 1px solid rgba(148, 163, 184, 0.2);
-}
-
-.phaseCard .card__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 0.5rem;
-}
-
-.phaseCard h3 {
-  font-size: 1.1rem;
-  margin: 0;
-}
-
-.badge {
-  font-size: 0.75rem;
-  padding: 0.15rem 0.5rem;
-  border-radius: 999px;
-  background: rgba(59, 130, 246, 0.15);
-  color: #60a5fa;
+.flowLabel {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   white-space: nowrap;
 }
 
-.stack {
-  text-align: center;
-  padding: 2rem;
-  border-radius: 8px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
+.flowArrow {
+  margin: 0 0.15rem;
+  opacity: 0.45;
+  font-size: 0.85rem;
 }
 
-.stackLine {
-  font-family: var(--ifm-font-family-monospace);
-  font-size: 0.95rem;
-  opacity: 0.9;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .flowLabel {
+    font-size: 0.75rem;
+  }
+}
+
+.ctaPanel {
+  padding: 2.75rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.ctaTitle {
+  font-family: var(--ifm-heading-font-family);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 0.75rem;
+}
+
+.ctaDesc {
+  max-width: 540px;
+  margin: 0 auto 1.75rem;
+  color: var(--ra-ink-muted);
+  line-height: 1.65;
+}
+
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
 }

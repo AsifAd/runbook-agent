@@ -1,30 +1,326 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Runbook Agent — NYT editorial + glassmorphism design system
  */
 
-/* You can override the default Infima variables here. */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap');
+
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* NYT-inspired palette — light */
+  --ra-cream: #f8f7f4;
+  --ra-paper: #ffffff;
+  --ra-ink: #121212;
+  --ra-ink-muted: #5a5a5a;
+  --ra-rule: rgba(18, 18, 18, 0.12);
+  --ra-accent: #326891;
+  --ra-accent-soft: rgba(50, 104, 145, 0.12);
+  --ra-gold: #c4a35a;
+
+  /* Glass */
+  --ra-glass-bg: rgba(255, 255, 255, 0.62);
+  --ra-glass-border: rgba(255, 255, 255, 0.85);
+  --ra-glass-shadow: 0 8px 32px rgba(18, 18, 18, 0.08);
+  --ra-blur: 18px;
+
+  /* Motion — Material standard easing */
+  --ra-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ra-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ra-duration: 280ms;
+  --ra-duration-slow: 480ms;
+
+  /* Infima overrides */
+  --ifm-color-primary: #326891;
+  --ifm-color-primary-dark: #2a587a;
+  --ifm-color-primary-darker: #265270;
+  --ifm-color-primary-darkest: #1f435c;
+  --ifm-color-primary-light: #3a759f;
+  --ifm-color-primary-lighter: #3f7ba6;
+  --ifm-color-primary-lightest: #4a8ab8;
+  --ifm-background-color: var(--ra-cream);
+  --ifm-background-surface-color: var(--ra-paper);
+  --ifm-font-color-base: var(--ra-ink);
+  --ifm-font-color-secondary: var(--ra-ink-muted);
+  --ifm-font-family-base: 'Libre Franklin', system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-family: 'Newsreader', 'Georgia', 'Times New Roman', serif;
+  --ifm-heading-font-weight: 600;
+  --ifm-global-radius: 12px;
+  --ifm-code-font-size: 90%;
+  --ifm-navbar-height: 4.25rem;
+  --ifm-navbar-background-color: transparent;
+  --ifm-footer-background-color: transparent;
+  --docusaurus-highlighted-code-line-bg: rgba(50, 104, 145, 0.12);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ra-cream: #0d0d0d;
+  --ra-paper: #161616;
+  --ra-ink: #f4f4f1;
+  --ra-ink-muted: #a8a8a3;
+  --ra-rule: rgba(244, 244, 241, 0.1);
+  --ra-accent: #6eb3e0;
+  --ra-accent-soft: rgba(110, 179, 224, 0.14);
+  --ra-gold: #d4b76a;
+
+  --ra-glass-bg: rgba(22, 22, 22, 0.72);
+  --ra-glass-border: rgba(255, 255, 255, 0.08);
+  --ra-glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+
+  --ifm-color-primary: #6eb3e0;
+  --ifm-color-primary-dark: #5fa8d8;
+  --ifm-color-primary-darker: #589fce;
+  --ifm-color-primary-darkest: #4883aa;
+  --ifm-color-primary-light: #7dbde4;
+  --ifm-color-primary-lighter: #85c2e6;
+  --ifm-color-primary-lightest: #9bceeb;
+  --ifm-background-color: var(--ra-cream);
+  --ifm-background-surface-color: var(--ra-paper);
+  --docusaurus-highlighted-code-line-bg: rgba(110, 179, 224, 0.15);
+}
+
+/* ─── Global page atmosphere ─── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, var(--ra-accent-soft), transparent 70%),
+    var(--ra-cream);
+  min-height: 100vh;
+}
+
+/* ─── Glass navbar ─── */
+.navbar {
+  backdrop-filter: blur(var(--ra-blur)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--ra-blur)) saturate(160%);
+  background: var(--ra-glass-bg) !important;
+  border-bottom: 1px solid var(--ra-rule);
+  box-shadow: var(--ra-glass-shadow);
+  transition:
+    background var(--ra-duration) var(--ra-ease-in-out),
+    box-shadow var(--ra-duration) var(--ra-ease-in-out);
+}
+
+.navbar__title {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.navbar__link {
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color var(--ra-duration) var(--ra-ease-out);
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: var(--ifm-color-primary);
+}
+
+/* ─── Glass footer ─── */
+.footer {
+  backdrop-filter: blur(var(--ra-blur));
+  -webkit-backdrop-filter: blur(var(--ra-blur));
+  background: var(--ra-glass-bg) !important;
+  border-top: 1px solid var(--ra-rule);
+}
+
+.footer__title {
+  font-family: var(--ifm-heading-font-family);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ─── Doc sidebar glass panel ─── */
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--ra-rule) !important;
+}
+
+.menu {
+  padding: 0.75rem;
+}
+
+.menu__link {
+  border-radius: 8px;
+  transition:
+    background var(--ra-duration) var(--ra-ease-out),
+    color var(--ra-duration) var(--ra-ease-out),
+    transform var(--ra-duration) var(--ra-ease-out);
+}
+
+.menu__link:hover {
+  background: var(--ra-accent-soft);
+}
+
+.menu__link--active {
+  background: var(--ra-accent-soft);
+  font-weight: 600;
+}
+
+/* ─── Doc content — NYT editorial ─── */
+.theme-doc-markdown {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+}
+
+.theme-doc-markdown h1 {
+  font-size: 2.75rem;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--ra-rule);
+}
+
+.theme-doc-markdown h2 {
+  font-size: 1.85rem;
+  letter-spacing: -0.02em;
+  margin-top: 2.5rem;
+  padding-top: 0.5rem;
+}
+
+.theme-doc-markdown h3 {
+  font-size: 1.35rem;
+}
+
+.theme-doc-markdown table {
+  display: table;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--ra-rule);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  background: var(--ra-glass-bg);
+  box-shadow: var(--ra-glass-shadow);
+}
+
+.theme-doc-markdown table th {
+  background: var(--ra-accent-soft);
+  font-family: var(--ifm-font-family-base);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.theme-doc-markdown table td,
+.theme-doc-markdown table th {
+  border-color: var(--ra-rule);
+  padding: 0.85rem 1rem;
+}
+
+/* Admonitions — glass cards */
+.theme-admonition {
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  border: 1px solid var(--ra-rule);
+  box-shadow: var(--ra-glass-shadow);
+}
+
+/* Code blocks */
+.theme-code-block {
+  border-radius: 12px !important;
+  border: 1px solid var(--ra-rule);
+  box-shadow: var(--ra-glass-shadow);
+}
+
+/* Mermaid diagrams */
+.docusaurus-mermaid-container {
+  backdrop-filter: blur(8px);
+  background: var(--ra-glass-bg);
+  border: 1px solid var(--ra-rule);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--ra-glass-shadow);
+}
+
+/* Pagination */
+.pagination-nav__link {
+  backdrop-filter: blur(12px);
+  background: var(--ra-glass-bg);
+  border: 1px solid var(--ra-rule);
+  border-radius: 12px;
+  transition:
+    transform var(--ra-duration) var(--ra-ease-out),
+    box-shadow var(--ra-duration) var(--ra-ease-out);
+}
+
+.pagination-nav__link:hover {
+  box-shadow: var(--ra-glass-shadow);
+  transform: translateY(-2px);
+}
+
+/* TOC */
+.table-of-contents__link {
+  transition: color var(--ra-duration) var(--ra-ease-out);
+}
+
+.table-of-contents__link--active {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
+/* Buttons global polish */
+.button {
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition:
+    transform var(--ra-duration) var(--ra-ease-out),
+    box-shadow var(--ra-duration) var(--ra-ease-out),
+    background var(--ra-duration) var(--ra-ease-out);
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(50, 104, 145, 0.25);
+}
+
+.button--primary {
+  border: none;
+}
+
+/* Shared glass utility */
+.ra-glass {
+  backdrop-filter: blur(var(--ra-blur)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--ra-blur)) saturate(160%);
+  background: var(--ra-glass-bg);
+  border: 1px solid var(--ra-glass-border);
+  box-shadow: var(--ra-glass-shadow);
+}
+
+/* Doc page wrapper breathing room */
+.docMainContainer {
+  animation: fadeInDoc 0.45s var(--ra-ease-out);
+}
+
+@keyframes fadeInDoc {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

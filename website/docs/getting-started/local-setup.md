@@ -66,8 +66,10 @@ make test           # Unit + policy tests (no LLM API)
 ```
 
 :::info Current status
+
 **Phase 0 complete** — repo scaffold, documentation, GitHub Pages.  
 **Phase 1 starting next** — classifier package and eval fixtures.
+
 :::
 
 ## kind cluster (Phase 2+)

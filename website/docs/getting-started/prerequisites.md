@@ -25,7 +25,9 @@ sidebar_position: 1
 | `GITHUB_TOKEN` | CI evals (optional) | GitHub Settings → Secrets |
 
 :::tip Cost control
+
 Use one provider consistently. Set a monthly budget alert ($20) in the provider dashboard. Golden evals on every PR can get expensive — run full evals on `main` only.
+
 :::
 
 ## Optional tools (Phase 2+)

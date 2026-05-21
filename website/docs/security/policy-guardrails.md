@@ -84,7 +84,9 @@ Policy tests **must** verify every forbidden tool returns an error and never rea
 | **high** | Require approval | Blocked | Required + typed confirm | Required first |
 
 :::info Demo environments
+
 The demo only uses `sandbox` environment. "Prod-like" is simulated to test policy without real production access.
+
 :::
 
 ## Prompt injection defense

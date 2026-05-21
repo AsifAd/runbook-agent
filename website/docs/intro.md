@@ -37,13 +37,16 @@ This project ships in **four internal phases**, published as **one monorepo** an
 
 | Phase | Name | Public? | Status |
 |-------|------|---------|--------|
-| 1 | Alert Classifier | Internal scaffold | Planned |
+| 0 | Docs & scaffold | GitHub Pages live | **Complete** |
+| 1 | Alert Classifier | Internal scaffold | Next |
 | 2 | Incident Investigator | v0.1 publish | Planned |
 | 3 | Runbook Agent (capstone) | v1.0 featured | Planned |
 | 4 | Agent Ops Platform | v2 optional | Planned |
 
 :::info Live docs
+
 This site is hosted on GitHub Pages at **[asifad.github.io/runbook-agent](https://asifad.github.io/runbook-agent/)**.
+
 :::
 
 ## Quick links
