@@ -85,6 +85,7 @@ const config: Config = {
           title: 'Documentation',
           items: [
             {label: 'Introduction', to: '/docs/intro'},
+            {label: 'Architecture', to: '/docs/architecture/system-design'},
             {label: 'Roadmap', to: '/docs/roadmap/timeline'},
             {label: 'Tech Stack', to: '/docs/tech-stack'},
           ],
@@ -99,7 +100,7 @@ const config: Config = {
           ],
         },
         {
-          title: 'Links',
+          title: 'Connect',
           items: [
             {label: 'GitHub', href: 'https://github.com/AsifAd/runbook-agent'},
             {label: 'Portfolio', href: 'https://asifad.github.io'},
@@ -107,7 +108,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Asif Draxi. Built with Docusaurus.`,
+      copyright: `© ${new Date().getFullYear()} Asif Draxi`,
     },
     prism: {
       theme: prismThemes.github,

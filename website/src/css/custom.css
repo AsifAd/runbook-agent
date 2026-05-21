@@ -117,19 +117,9 @@ body {
   color: var(--ifm-color-primary);
 }
 
-/* ─── Glass footer ─── */
-.footer {
-  backdrop-filter: blur(var(--ra-blur));
-  -webkit-backdrop-filter: blur(var(--ra-blur));
-  background: var(--ra-glass-bg) !important;
-  border-top: 1px solid var(--ra-rule);
-}
-
-.footer__title {
-  font-family: var(--ifm-heading-font-family);
-  font-size: 0.95rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+/* ─── Legacy Infima footer overrides (custom theme footer uses module CSS) ─── */
+.footer.footer--dark {
+  display: none;
 }
 
 /* ─── Doc sidebar glass panel ─── */

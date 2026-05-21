@@ -15,7 +15,10 @@ test.describe('navigation', () => {
 
   test('footer phase links resolve', async ({page}) => {
     await page.goto('./');
-    await page.getByRole('contentinfo').getByRole('link', {name: /Phase 3/i}).click();
+    await page
+      .getByRole('contentinfo')
+      .getByRole('link', {name: 'Phase 3 — Runbook Agent'})
+      .click();
     await expect(page).toHaveURL(/\/docs\/phases\/phase-3-runbook-agent$/);
   });
 
